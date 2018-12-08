@@ -1,0 +1,550 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    }
+    *, *:before, *:after {
+    box-sizing: inherit;
+    }
+
+body {
+    background-image: url("/img/gplaypattern2.png");
+    margin: 0 auto;
+    text-align: center;
+     }
+/* header */
+
+.headerContainer{
+    padding: 5px 0;
+}
+
+#banner {
+   width:100vw;
+   height: 100vh;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .recipeUploadDiv {
+    padding-top: 120px;
+    
+  }
+  .sticky + .myRecipeListResultsDiv {
+    padding-top: 120px;
+    
+  }
+  .sticky + .recipeSearchResultsDiv {
+    padding-top: 120px;
+  }
+
+
+header {
+    background-image: url("/img/header_back8.jpg");
+    background-size: cover;
+    padding: 20px;
+
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.headerDiv{
+    display: grid;
+    grid-template-columns: 10% 20% 30% 30% 10%;
+    width: 100%;
+        
+}
+
+.headerDiv h1 {
+    grid-column-start: 4;
+    text-align: right;
+    color: #bae07a;
+
+
+}
+/* search */
+.searchContainer {
+    display: grid;
+    grid-template-columns: 10% 20% 30% 30% 10%;
+    }
+
+.searchDiv {
+    grid-column-start: 3;
+    text-align: center; 
+
+}
+
+/* search Btn */
+
+.submitBtn {
+    background-color:#7f9953;
+    color: white;
+    padding: 5px 10px; 
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em
+}
+.submitBtn:hover {
+    background-color: #ff8b75;
+  }
+#search-inputText {
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 5px 10px; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1em;
+}
+
+/* menu */
+
+.navItems {
+    grid-column-start: 4;
+    text-align: right;
+}
+
+.nav-item {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 0 5px;
+    padding: 3px 5px;
+    color: #ff8b75;
+}
+
+.nav-item:hover {
+    color: #bae07a;
+}
+.nav-item:active {
+    text-decoration: none;
+}
+.nav-item:visited {
+    text-decoration: none;
+}
+
+
+/* Main Results */
+
+.recipeSearchResultsDiv h1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+  }
+  .featureImgDiv {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 72% 28%;
+  }
+
+ .featureImg{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .featureEditorImg {
+    width: 150px;
+
+  }
+
+  .featureEditorImgDiv {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+
+  .editorText {
+    grid-column-start: 2;   
+    grid-row-start: 2;
+  }
+
+
+/* Feature recipes  */
+
+  .featureDetailsDiv{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    text-align: center; 
+  }
+
+  .featuredRecipes {
+    display: grid;
+    grid-template-columns: 5% 30% 30% 30% 5%;
+    grid-template-rows: 100px 400px;
+  }
+
+  .featuredRecipes h2 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2em;
+    font-weight: 400;
+    background: rgba(183, 219, 120, 0.6);
+    padding: 20px 0 5px 0;
+    margin-bottom: 15px;
+    color: white;
+  }
+
+  .feat1 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+  .feat1:hover {
+      cursor: pointer;
+  }
+  .feat2 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+  }
+  .feat2:hover {
+    cursor: pointer;
+}
+  .feat3 {
+    grid-column-start: 4;
+    grid-row-start: 2;
+  }
+  .feat3:hover {
+    cursor: pointer;
+}
+
+/* Recipe search */
+  .recipeSearchResultsDiv {
+    display: grid;
+    grid-template-columns: 10% 40% 40% 10%;
+    grid-template-rows: 100px auto;
+    margin-top: 50px;
+  }
+
+  .h2main {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+  }
+
+  .h2main h2 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2em;
+    font-weight: 400;
+    background: rgba(183, 219, 120, 0.6);
+    padding: 20px 0 20px 0;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .searchResultsList {
+    grid-column-start: 2;
+  }
+
+.searchRecipeDetailsDiv {
+    grid-column-start: 3;
+}
+
+.featImgTempDiv {
+    grid-column-start: 3;
+    grid-row-start: 3;
+
+
+}
+
+    .featureImgDiv{
+        grid-column-start: 2;
+    }
+  .searchListDetails {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 10% 70% 20%;
+  }
+  .searchResultsList h2 {
+    grid-column-start: 2;
+    margin-top: 30px;
+  }
+  .imgSearch {
+    grid-column-start: 1; 
+  }
+
+  .imgSearch {
+      width: 50px;
+      height: 50px;
+  }
+
+  .searchListDetails h2 {
+    text-align: left;
+  }
+  .searchListDetails button {
+    width: 80px;
+    height: 30px;
+    display: inline-block;
+  }
+
+h1 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 3em;
+    font-weight: 300;
+    margin: 10px 0 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;  
+}
+
+
+button {
+    margin: 0 0 0 5px;  
+    font-family: 'Roboto', sans-serif;  
+    font-size: .8em;
+    color: white;
+    padding: 3px 5px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 1px 1px 5px rgb(22, 22, 22, .5);
+    background-color: #7f9953;
+
+    }
+button:hover{
+    cursor: pointer;
+    background-color: rgb(209, 62, 106);
+    transition: all 0.5s ease-out;
+    color: white;
+    border: none;
+    }
+
+button:focus{
+    outline:none;
+    border: none;
+    }
+
+button:active{
+    outline:none;
+    border: none;
+    box-shadow: none;
+    }
+
+
+    .communityFormDisplay {
+        margin: 40px 0 40px 0;
+        display: grid;
+        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-rows: 100px auto;
+
+    }
+
+    .communityFormDisplay h2 {
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        font-family: 'Londrina Solid', cursive;
+        font-size: 2em;
+        font-weight: 400;
+        background: rgba(183, 219, 120, 0.6);
+        padding: 20px 0 5px 0;
+        margin-bottom: 15px;
+        color: white;
+
+
+    }
+
+    .formList {
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 2;
+
+
+    }
+    .myListImg {
+        grid-column-start: 2;
+        grid-row-start: 2;
+        width: 200px;
+        height: 200px;
+    }
+
+    .formDisplayList {
+        background: rgb(182, 98, 82, .4);
+        padding: 20px;
+        border: gray 6px solid; 
+        margin-bottom: 20px;
+
+
+    }
+
+    .formDisplayList p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        font-weight: 500;
+        color:#585959;
+        background: white;
+        margin:5px 0 5px;
+        padding: 2px;
+
+
+    }
+
+    .formResultsDisplay {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+
+/* My Recipe page */
+
+.myRecipeListResults {
+    margin: 10px 0 20px;
+
+
+
+}
+.myRecipeListResults h2 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2em;
+    font-weight: 400;
+    background: rgba(183, 219, 120, 0.6);
+    padding: 20px 0 20px 0;
+    margin: 20px 30px 20px;
+    color: white;
+}
+
+.dbImgDiv {
+    margin: 20px 30px 0;
+    background: rgb(186, 223, 122, .5);
+    padding: 10px 0;
+
+}
+
+.dbName {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.45em;
+    font-weight: 700;
+    color:#585959;
+    background: white;
+    margin:10px 0 10px;
+    padding: 3px;
+}
+
+
+.dbImg {
+    border-radius: 5% 0;
+    border: white 5px solid;
+}
+
+
+.dbDetailsDiv {
+    margin: 0 30px;
+    padding: 10px 20px 5px;
+    background: rgba(173, 173, 173, 0.2);
+    border: #585959 10px solid;
+
+
+}
+
+.dbDetailsDiv p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: black;
+    margin: 3px;
+    size: 1.5em;
+    
+    
+}
+.dbDetailsDiv a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: black;
+    margin: 3px;
+    size: 1.5em;
+}
+.dbDetailsDiv a:active {
+    text-decoration: none;
+
+}
+
+.dbTrash {
+    margin: 5px;
+    font-size: 1em;
+
+
+}
+
+.dbTrash:hover {
+    cursor: pointer;
+
+
+}
+
+/* recipe upload form */
+
+
+.recipeUpload {
+    margin: 30px 30px;
+    background: rgb(255, 139, 117, .4);
+    padding: 20px;
+
+
+}
+.recipeUpload h2 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2em;
+    font-weight: 400;
+    background: rgb(255, 255, 255, .8);
+    padding: 5px;
+    margin-bottom: 15px;
+   
+}
+
+.recipeUpload p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: black;
+    margin: 5px;
+    font-size: 1.1em;
+}
+
+.formField {
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 30%;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: black;
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+.submitForm {
+    width: 30%;
+    background-color: rgb(209, 62, 106);
+    color: white;
+    padding: 14px 20px; 
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+.submitForm:hover {
+    background-color: rgb(206, 120, 146);
+  }
+
+/* font-family: 'Londrina Solid', cursive;
+font-family: 'Oregano', cursive;
+font-family: 'Roboto', sans-serif; */

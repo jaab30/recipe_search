@@ -1,0 +1,71 @@
+<header id="navbar" class="headerContainer">
+    <div class="headerDiv">
+        <h1>Low Carb Solutions</h1>
+    </div>
+    <a href="#" id="pagetop"></a>
+    <div class="searchContainer">
+        <div class="searchDiv">
+            <form id="recipe-form" class="search1">
+                <input id="search-input" class="submitBtn" type="submit" value="Search"><input type="text" id="search-inputText"
+                    placeholder=" ex. chicken, beef">
+            </form>
+        </div>
+        <nav class="navItems">
+            <a class="nav-item" href="/home">Home</a>
+            <a class="nav-item" href="/uploadrecipe">Submit a Recipe</a>
+            <a class="nav-item" href="/viewrecipe">My Recipes</a>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+
+<div class="recipeSearchResultsDiv">
+    <div class="h2main">
+        <h2>Recipe of the Month</h2>
+    </div>
+    <div class="searchResultsList">
+
+    </div>
+    <div class="searchRecipeDetailsDiv">
+
+    </div>
+</div>
+<div class="scroll-right"></div>
+<div class="scroll-left"></div>
+
+<div class="featuredRecipes">
+    <h2>Featured Recipes</h2>
+    <div class="feat1">
+        <img class="feature1link" src="/img/feature1.jpg" alt="feature recipe image">
+    </div>
+
+    <div class="feat2">
+        <img class="feature2link" src="/img/feature2.jpg" alt="feature recipe image">
+    </div>
+    <div class="feat3">
+        <img class="feature3link" src="/img/feature3.jpg" alt="feature recipe image">
+    </div>
+</div>
+
+
+
+<div class="communityFormDisplay">
+    <h2>Community Recipes - Recipes from you</h2>
+    <ul class="formList">
+        {{#each myform}}
+        <li class="formDisplayList">
+            <img class="myListImg" src="{{this.recipe_image}}" alt="recipe picture">
+            <p class="FormUserName formResultsDisplay">User Name: {{this.user_name}}</p>
+            <p class="FormRecipeName formResultsDisplay">Recipe Name: {{this.recipe_name}}</p>
+            <p class="FormServings formResultsDisplay">Servings: {{this.recipe_servings}}</p>
+            <p class="FormIngredients formResultsDisplay">Ingredients: {{this.recipe_ingredients}}</p>
+            <p class="FormInstructions formResultsDisplay">Cooking Instructions: {{this.recipe_cookingInst}}</p>
+
+        </li>
+        {{/each}}
+    </ul>
+</div>
