@@ -110,12 +110,12 @@ $(document).ready(function () {
 
         featureImgDiv = $("<div class='featureImgDiv'>")
         featureImg = $("<img class='featureImg' alt='Recipe Img'>").attr("src", "/img/featured_pic_use.jpg");
-        featureEditorImgDiv = $("<div class='featureEditorImgDiv'>")
-        featureEditorImg = $("<img class='featureEditorImg' alt='Editors Img'>").attr("src", "/img/editor_test.jpg");
-        featureEditorImgDiv.append(featureEditorImg)
-        featureTextDiv = $("<div class='editorText'>")
-        featureText = $("<h3>").text("Editor's Recipe of the Month")
-        featureTextDiv.append(featureText)
+        // featureEditorImgDiv = $("<div class='featureEditorImgDiv'>")
+        // featureEditorImg = $("<img class='featureEditorImg' alt='Editors Img'>").attr("src", "/img/editor_test.jpg");
+        // featureEditorImgDiv.append(featureEditorImg)
+        // featureTextDiv = $("<div class='editorText'>")
+        // featureText = $("<h3>").text("Editor's Recipe of the Month")
+        // featureTextDiv.append(featureText)
 
         featureDetailsDiv = $("<div class='featureDetailsDiv'>")
         featureRecipeName = $("<h3 class='recipeDetailsName myListName'>").text(response.hits[x].recipe.label).attr("data-name", response.hits[x].recipe.label);
@@ -161,18 +161,18 @@ $(document).ready(function () {
             featureingredientsListHolder.append(featureingredientItemList)
         }
 
-        featureinstructions = $("<a>").attr("href", response.hits[x].recipe.url).attr("target", "_blank").text('Cooking Instructions (' + response.hits[x].recipe.source + ')')
+        featureinstructions = $("<a>").attr("href", response.hits[x].recipe.url).attr("target", "_blank").text('Cooking Instructions from: "' + response.hits[x].recipe.source + '"')
         var featurebtnsDiv = $("<div class='buttonsDiv'>")
 
         myListBtn = $("<button class='myListBtn' type='button'>").text("Add to my Recipes").attr("data-value", x).attr("data-name", response.hits[x].recipe.label);
 
         printBtn = $("<button class='printBtn' type='button'>").text("Print - Download").attr("data-value", 5);
 
-        reviewBtn = $("<button class='reviewBtn' type='button'>").text("Write a Review").attr("data-value", 5);
+        // reviewBtn = $("<button class='reviewBtn' type='button'>").text("Write a Review").attr("data-value", 5);
 
-        featurebtnsDiv.append(myListBtn, printBtn, reviewBtn)
+        featurebtnsDiv.append(myListBtn, printBtn)
 
-        featureImgDiv.append(featureImg, featureEditorImgDiv, featureTextDiv)
+        featureImgDiv.append(featureImg)
         featureDetailsDiv.append(featureRecipeName, featurerecipeCarbLabel, featurerecipeServings, featurerecipeCaloriesServings, featurehealthLabelListHolder, featureingredientTitle, featureingredientsListHolder, featureinstructions, featurebtnsDiv);
 
         $(".searchResultsList").append(featureImgDiv)
@@ -211,7 +211,10 @@ $(document).ready(function () {
         var scrollValueLeft = scrollValue - 10;
         scrollValueLeft = parseInt(scrollValueLeft)
 
-        scrollLeftImg = $("<p class='scroll-leftImg'>").text("<<").attr("value", scrollValueLeft);
+        // scrollLeftImgDiv = $("<p>")
+        scrollLeftImg = $("<i class='fas fa-angle-double-left scroll-leftImg'></i>").attr("value", scrollValueLeft);
+        // scrollLeftImgDiv.append(scrollLeftImg)
+
         $(".scroll-left").append(scrollLeftImg)
 
         if (scrollValue > 39) {
@@ -265,6 +268,7 @@ $(document).ready(function () {
         $(".submitBtn").on("click", function (event) {
             event.preventDefault()
 
+            window.location.href = '#pagetop'
 
             var input = $("#search-inputText").val()
 
@@ -283,7 +287,7 @@ $(document).ready(function () {
             }).then(function (res) {
 
                 featImgTempDiv = $("<div class='featImgTempDiv'>")
-                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/featured_pic_use.jpg")
+                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/poster1B.jpg")
                 featImgTempDiv.append(featImgTemp)
                 $(".searchRecipeDetailsDiv").append(featImgTempDiv)
 
@@ -292,19 +296,19 @@ $(document).ready(function () {
 
                 $("#search-inputText").val("")
 
-                scrollRightImg = $("<p class='scroll-rightImg'>").text(">>").attr("value", "10");
+                // scrollRightImgDiv = $("<p>")
+                scrollRightImg = $("<i class='fas fa-angle-double-right scroll-rightImg'></i>").attr("value", "10");
+                // scrollRightImgDiv.append(scrollRightImg)
+
                 $(".scroll-right").append(scrollRightImg)
 
-                window.location.href = '#pagetop'
+
 
             })
         })
 
 
         $(document.body).on("click", ".recipeBtn", function () {
-
-
-
 
             $(".searchRecipeDetailsDiv").empty()
             var recipeID = $(this).attr("data-value")
@@ -364,9 +368,9 @@ $(document).ready(function () {
 
             printBtn = $("<button class='printBtn' type='button'>").text("Print - Download").attr("data-value", recipeID);
 
-            reviewBtn = $("<button class='reviewBtn' type='button'>").text("Write a Review").attr("data-value", recipeID);
+            // reviewBtn = $("<button class='reviewBtn' type='button'>").text("Write a Review").attr("data-value", recipeID);
 
-            btnsDiv.append(myListBtn, printBtn, reviewBtn)
+            btnsDiv.append(myListBtn, printBtn)
 
             recipeDetailsDiv.append(recipeImg, recipeName, recipeCarbLabel, recipeServings, recipeCaloriesServings, healthLabelListHolder, ingredientTitle, ingredientsListHolder, instructions, btnsDiv);
 
@@ -395,6 +399,9 @@ $(document).ready(function () {
 
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".scroll-left").empty()
+            $(".scroll-right").empty()
+            // window.location.href = '#pagetop'
 
             queryURL = "https://api.edamam.com/search?q=&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=10&diet=low-carb&time=1-10"
 
@@ -404,7 +411,7 @@ $(document).ready(function () {
             }).then(function (res) {
 
                 featImgTempDiv = $("<div class='featImgTempDiv'>")
-                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/feature1.jpg")
+                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/poster2A.jpg")
                 featImgTempDiv.append(featImgTemp)
                 $(".searchRecipeDetailsDiv").append(featImgTempDiv)
 
@@ -412,7 +419,7 @@ $(document).ready(function () {
 
                 displayResults(0);
 
-                window.location.href = '#pagetop'
+
             })
         })
 
@@ -420,6 +427,9 @@ $(document).ready(function () {
 
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".scroll-left").empty()
+            $(".scroll-right").empty()
+            // window.location.href = '#pagetop'
 
             queryURL = "https://api.edamam.com/search?q=seafood&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=10&diet=low-carb"
 
@@ -429,7 +439,7 @@ $(document).ready(function () {
             }).then(function (res) {
 
                 featImgTempDiv = $("<div class='featImgTempDiv'>")
-                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/feature2.jpg")
+                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/poster3A.jpg")
                 featImgTempDiv.append(featImgTemp)
                 $(".searchRecipeDetailsDiv").append(featImgTempDiv)
 
@@ -437,7 +447,7 @@ $(document).ready(function () {
 
                 displayResults(0);
 
-                window.location.href = '#pagetop'
+
             })
         })
 
@@ -445,6 +455,9 @@ $(document).ready(function () {
 
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".scroll-left").empty()
+            $(".scroll-right").empty()
+            // window.location.href = '#pagetop'
 
             queryURL = "https://api.edamam.com/search?q=cookie&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=9&diet=low-carb"
 
@@ -454,7 +467,7 @@ $(document).ready(function () {
             }).then(function (res) {
 
                 featImgTempDiv = $("<div class='featImgTempDiv'>")
-                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/feature3.jpg")
+                featImgTemp = $("<img class='featImgTemp' alt='Recipe Img'>").attr("src", "/img/poster1A.jpg")
                 featImgTempDiv.append(featImgTemp)
                 $(".searchRecipeDetailsDiv").append(featImgTempDiv)
 
@@ -462,7 +475,6 @@ $(document).ready(function () {
 
                 displayResults(0);
 
-                window.location.href = '#pagetop'
             })
         })
 
@@ -538,11 +550,16 @@ $(document).ready(function () {
                     data: newFormRecipe
                 }).then(
                     function () {
+
                         console.log("uploaded new Recipe");
+                        alert("Thanks for submitting your recipe... You should be able to view it at our 'Home' page")
                         location.reload();
+
                     }
 
                 );
+
+
             } else {
 
                 alert("Please fill out all fields before submitting!")
@@ -550,6 +567,10 @@ $(document).ready(function () {
             }
 
         })
+        $(".modalBtn").on("click", function (event) {
+            location.reload();
+        })
+
 
         $(document.body).on("click", ".dbTrash", function () {
             var id = $(this).data("id");
