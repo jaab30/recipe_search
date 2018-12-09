@@ -396,12 +396,14 @@ $(document).ready(function () {
 
 
         $(".feature1link").on("click", function (event) {
-
+            window.location.href = '#pagetop'
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".h2main").empty()
+            $(".h2main").html("<h2>Low Carb Vegan Recipes Search Results</h2>")
             $(".scroll-left").empty()
             $(".scroll-right").empty()
-            // window.location.href = '#pagetop'
+
 
             queryURL = "https://api.edamam.com/search?q=&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=10&diet=low-carb&time=1-10"
 
@@ -424,12 +426,14 @@ $(document).ready(function () {
         })
 
         $(".feature2link").on("click", function (event) {
-
+            window.location.href = '#pagetop'
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".h2main").empty()
+            $(".h2main").html("<h2>Low Carb Seafood Recipes Search Results</h2>")
             $(".scroll-left").empty()
             $(".scroll-right").empty()
-            // window.location.href = '#pagetop'
+
 
             queryURL = "https://api.edamam.com/search?q=seafood&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=10&diet=low-carb"
 
@@ -452,12 +456,14 @@ $(document).ready(function () {
         })
 
         $(".feature3link").on("click", function (event) {
-
+            window.location.href = '#pagetop'
             $(".searchResultsList").empty()
             $(".searchRecipeDetailsDiv").empty()
+            $(".h2main").empty()
+            $(".h2main").html("<h2>Low Carb Dessert Recipes Search Results</h2>")
             $(".scroll-left").empty()
             $(".scroll-right").empty()
-            // window.location.href = '#pagetop'
+
 
             queryURL = "https://api.edamam.com/search?q=cookie&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=9&diet=low-carb"
 
