@@ -14,11 +14,13 @@ body {
 /* header */
 
 .headerContainer{
-    padding: 5px 0;
+    padding: 5px 0 10px;
+    border-bottom: gray 2px solid;
+    /* margin-bottom: 10px; */
 }
 
 #banner {
-   width:100vw;
+   width:100%;
    height: 100vh;
 }
 
@@ -37,12 +39,12 @@ body {
     
   }
   .sticky + .recipeSearchResultsDiv {
-    padding-top: 120px;
+    padding-top: 105px;
   }
 
 
 header {
-    background-image: url("/img/header_back8.jpg");
+    background-image: url("/img/header_back13.jpg");
     background-size: cover;
     padding: 20px;
 
@@ -55,22 +57,28 @@ h2 {
 
 .headerDiv{
     display: grid;
-    grid-template-columns: 10% 20% 30% 30% 10%;
+    grid-template-columns: 10% 20% 35% 25% 10%;
     width: 100%;
+    height: 80px;
         
 }
 
 .headerDiv h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
     grid-column-start: 4;
     text-align: right;
-    color: #bae07a;
+    font-weight: 500;
+    margin: 25px 10px 0;
+
+    color: #575757;
 
 
 }
 /* search */
 .searchContainer {
     display: grid;
-    grid-template-columns: 10% 20% 30% 30% 10%;
+    grid-template-columns: 10% 20% 35% 25% 10%;
     }
 
 .searchDiv {
@@ -83,6 +91,7 @@ h2 {
 
 .submitBtn {
     background-color:#7f9953;
+    /* background-color: #ff8b75; */
     color: white;
     padding: 5px 10px; 
     margin: 0 10px;
@@ -95,11 +104,13 @@ h2 {
 }
 .submitBtn:hover {
     background-color: #ff8b75;
+    /* background-color:#7f9953; */
   }
 #search-inputText {
     display: inline-block;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(128, 128, 128);
+    background-color:rgba(255, 255, 255, 0.8);
     padding: 5px 10px; 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -119,7 +130,7 @@ h2 {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2em;
-    margin: 0 5px;
+    margin: 0 5px 10px;
     padding: 3px 5px;
     color: #ff8b75;
 }
@@ -148,13 +159,18 @@ h2 {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 72% 28%;
+    /* background: rgba(0, 0, 0, 0.8); */
+    margin: 5px;
+    padding: 20px 10px;
   }
 
  .featureImg{
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
+    width: 100%;
+    border: white 6px solid;
   }
 
   .featureEditorImg {
@@ -227,7 +243,7 @@ h2 {
     display: grid;
     grid-template-columns: 10% 40% 40% 10%;
     grid-template-rows: 100px auto;
-    margin-top: 50px;
+    margin: 50px 50px 10px;
   }
 
   .h2main {
@@ -248,39 +264,112 @@ h2 {
 
   .searchResultsList {
     grid-column-start: 2;
+    background:rgba(183, 219, 120, 0.6);
   }
 
 .searchRecipeDetailsDiv {
     grid-column-start: 3;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    background: white;
+    border: rgba(183, 219, 120, 0.8) 6px solid;
+    margin-left: 10px;
+    /* padding-top: 5px; */
+
+}
+.searchRecipeDetailsDiv h3 {
+    background: rgba(183, 219, 120, 0.8);
+    margin: 5px 0;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-weight: 500;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 1.8em;
+    /* font-family: 'Oregano', cursive;
+    font-family: 'Roboto', sans-serif; */
+
+}
+
+.searchRecipeDetailsDiv p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .9em;
+    color: black;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.searchRecipeDetailsDiv a {
+    text-decoration: underline;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .9em;
+}
+
+.searchRecipeDetailsDiv a:hover {
+    font-weight: 700;
+}
+
+.searchRecipeDetailsDiv .buttonsDiv {
+    margin: 10px 10px;
+
+}
+.searchRecipeDetailsDiv li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .9em;
+    margin-top: 5px;
+
 }
 
 .featImgTempDiv {
     grid-column-start: 3;
     grid-row-start: 3;
 
-
 }
 
-    .featureImgDiv{
-        grid-column-start: 2;
-    }
+.featImgTemp {
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+}
+
+.featureImgDiv{
+    grid-column-start: 2;
+}
   .searchListDetails {
     grid-column-start: 2;
     display: grid;
     grid-template-columns: 10% 70% 20%;
+    background: rgba(255, 255, 255, 0.8);
+    border: gray 1px solid;
+    margin: 10px;
+
   }
-  .searchResultsList h2 {
+  .searchResultsList h3 {
     grid-column-start: 2;
-    margin-top: 30px;
-  }
-  .imgSearch {
-    grid-column-start: 1; 
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 1em;
+    padding-left: 20px;
+
   }
 
+  /* .searchResultsList:hover {
+    background:rgba(183, 219, 120, 0.8);
+
+  } */
+
   .imgSearch {
+    grid-column-start: 1; 
+    width: 100%;
+    height: auto;
+  }
+
+  /* .imgSearch {
       width: 50px;
       height: 50px;
-  }
+  } */
 
   .searchListDetails h2 {
     text-align: left;
@@ -289,7 +378,41 @@ h2 {
     width: 80px;
     height: 30px;
     display: inline-block;
+    margin: 0 auto;
+    margin-top: 10px;
   }
+
+  .imgDetails {
+      width: 200px;
+      /* height: 200px; */
+      border-radius: 50%;
+      border: rgba(183, 219, 120, 0.9) 4px solid;
+  }
+
+  .scrollBtnMain {
+      display: grid;
+      grid-template-columns: 10% 20% 20% 50%;
+
+  }
+
+  .scroll-right {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    font-size: 2em;
+    margin-bottom: 20px;
+
+  }
+  .scroll-left {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    font-size: 2em;
+    margin-bottom: 20px;
+
+  }
+
+
+
+
 
 h1 {
     font-family: 'Londrina Solid', cursive;
@@ -392,8 +515,14 @@ button:active{
         background: white;
         margin:5px 0 5px;
         padding: 2px;
+        border-radius: 4%;
 
 
+    }
+
+    .myListImg {
+        border-radius: 5% 0;
+        border: white 5px solid;
     }
 
     .formResultsDisplay {
@@ -543,6 +672,13 @@ button:active{
 }
 .submitForm:hover {
     background-color: rgb(206, 120, 146);
+  }
+
+  .formResultsDisplay {
+      border-radius: 4%;
+
+
+
   }
 
 /* font-family: 'Londrina Solid', cursive;
