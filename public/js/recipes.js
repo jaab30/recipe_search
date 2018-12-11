@@ -53,7 +53,7 @@ $(document).ready(function () {
                     dbHealthLabel = $("<p>").text(res[i].recipe_health_label)
                     dbServingsCalories = $("<p>").text("Servings / Calories: " + Math.round(res[i].recipe_calories / res[i].recipe_servings))
                     dbServings = $("<p>").text("Servings: " + res[i].recipe_servings)
-                    dbOtherLabel = $("<p>").text("Other: " + res[i].recipe_other_label)
+                    dbOtherLabel = $("<p>").text("Health Advisory: " + res[i].recipe_other_label)
                     dbIngredients = $("<p>").text("Ingredients: " + res[i].recipe_ingredients)
                     dbInstructions = $("<a>").attr("href", res[i].recipe_cookingInst).attr("target", "_blank").text('Cooking Instructions')
                     dbTrashDiv = $("<p>")
