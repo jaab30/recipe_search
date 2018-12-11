@@ -8,6 +8,7 @@ html {
 
 body {
     background-image: url("/img/gplaypattern2.png");
+    background-attachment: fixed;
     margin: 0 auto;
     text-align: center;
      }
@@ -19,28 +20,36 @@ body {
     /* margin-bottom: 10px; */
 }
 
+h1 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 3em;
+    font-weight: 300;
+    margin: 10px 0 10px 0;
+    padding-top: 15px;
+}
+
 #banner {
    width:100%;
    height: 100vh;
 }
-
+/* sticky header */
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
-  }
+    }
 
-  .sticky + .recipeUploadDiv {
+.sticky + .recipeUploadDiv {
     padding-top: 120px;
-    
-  }
-  .sticky + .myRecipeListResultsDiv {
+
+}
+.sticky + .myRecipeListResultsDiv {
     padding-top: 120px;
-    
-  }
-  .sticky + .recipeSearchResultsDiv {
+
+}
+.sticky + .recipeSearchResultsDiv {
     padding-top: 105px;
-  }
+}
 
 
 header {
@@ -55,9 +64,9 @@ h2 {
     padding: 0;
 }
 
-.headerDiv{
+.headerDiv {
     display: grid;
-    grid-template-columns: 10% 20% 35% 25% 10%;
+    grid-template-columns: 10% 40% 40% 10%;
     width: 100%;
     height: 80px;
         
@@ -66,11 +75,10 @@ h2 {
 .headerDiv h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 2em;
-    grid-column-start: 4;
+    grid-column-start: 3;
     text-align: right;
     font-weight: 500;
     margin: 25px 10px 0;
-
     color: #575757;
 
 
@@ -78,12 +86,12 @@ h2 {
 /* search */
 .searchContainer {
     display: grid;
-    grid-template-columns: 10% 20% 35% 25% 10%;
+    grid-template-columns: 10% 40% 40% 10%;
     }
 
 .searchDiv {
-    grid-column-start: 3;
-    text-align: center; 
+    grid-column-start: 2;
+    text-align: right; 
 
 }
 
@@ -91,7 +99,6 @@ h2 {
 
 .submitBtn {
     background-color:#7f9953;
-    /* background-color: #ff8b75; */
     color: white;
     padding: 5px 10px; 
     margin: 0 10px;
@@ -100,11 +107,10 @@ h2 {
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 1em
+    font-size: 1em;
 }
 .submitBtn:hover {
     background-color: #ff8b75;
-    /* background-color:#7f9953; */
   }
 #search-inputText {
     display: inline-block;
@@ -121,7 +127,7 @@ h2 {
 /* menu */
 
 .navItems {
-    grid-column-start: 4;
+    grid-column-start: 3;
     text-align: right;
 }
 
@@ -129,7 +135,7 @@ h2 {
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0 5px 10px;
     padding: 3px 5px;
     color: #ff8b75;
@@ -156,19 +162,14 @@ h2 {
 
   }
   .featureImgDiv {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 72% 28%;
-    /* background: rgba(0, 0, 0, 0.8); */
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
     margin: 5px;
     padding: 20px 10px;
   }
 
  .featureImg{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
     width: 100%;
     border: white 6px solid;
   }
@@ -200,7 +201,7 @@ h2 {
   .featuredRecipes {
     display: grid;
     grid-template-columns: 5% 30% 30% 30% 5%;
-    grid-template-rows: 100px 400px;
+    grid-template-rows: 100px auto;
   }
 
   .featuredRecipes h2 {
@@ -219,13 +220,27 @@ h2 {
   .feat1 {
     grid-column-start: 2;
     grid-row-start: 2;
+    margin:5px;
   }
   .feat1:hover {
       cursor: pointer;
   }
+  .feature1link{
+      width: 100%;
+      height: auto;
+  }
+  .feature2link{
+      width: 100%;
+      height: auto;
+  }
+  .feature3link{
+      width: 100%;
+      height: auto;
+  }
   .feat2 {
     grid-column-start: 3;
     grid-row-start: 2;
+    margin:5px;
   }
   .feat2:hover {
     cursor: pointer;
@@ -233,6 +248,7 @@ h2 {
   .feat3 {
     grid-column-start: 4;
     grid-row-start: 2;
+    margin:5px;
   }
   .feat3:hover {
     cursor: pointer;
@@ -299,6 +315,15 @@ h2 {
 
 }
 
+.searchRecipeDetailsDiv p:last-child {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .8em;
+    color: black;
+    font-weight: 400;
+    margin: 10px 0;
+
+}
+
 .searchRecipeDetailsDiv a {
     text-decoration: underline;
     color:black;
@@ -337,28 +362,23 @@ h2 {
 .featureImgDiv{
     grid-column-start: 2;
 }
-  .searchListDetails {
-    grid-column-start: 2;
-    display: grid;
-    grid-template-columns: 10% 70% 20%;
-    background: rgba(255, 255, 255, 0.8);
-    border: gray 1px solid;
-    margin: 10px;
+.searchListDetails {
+grid-column-start: 2;
+display: grid;
+grid-template-columns: 10% 70% 20%;
+background: rgba(255, 255, 255, 0.8);
+border: gray 1px solid;
+margin: 10px;
 
-  }
-  .searchResultsList h3 {
-    grid-column-start: 2;
-    font-family: 'Roboto', sans-serif;
-    text-align: left;
-    font-size: 1em;
-    padding-left: 20px;
+}
+.searchResultsList h3 {
+grid-column-start: 2;
+font-family: 'Roboto', sans-serif;
+text-align: left;
+font-size: 1em;
+padding-left: 20px;
 
-  }
-
-  /* .searchResultsList:hover {
-    background:rgba(183, 219, 120, 0.8);
-
-  } */
+}
 
   .imgSearch {
     grid-column-start: 1; 
@@ -366,10 +386,6 @@ h2 {
     height: auto;
   }
 
-  /* .imgSearch {
-      width: 50px;
-      height: 50px;
-  } */
 
   .searchListDetails h2 {
     text-align: left;
@@ -384,7 +400,6 @@ h2 {
 
   .imgDetails {
       width: 200px;
-      /* height: 200px; */
       border-radius: 50%;
       border: rgba(183, 219, 120, 0.9) 4px solid;
   }
@@ -410,20 +425,9 @@ h2 {
 
   }
 
-
-
-
-
-h1 {
-    font-family: 'Londrina Solid', cursive;
-    font-size: 3em;
-    font-weight: 300;
-    margin: 10px 0 10px 0;
-}
-
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 10px 0;
     padding: 0;  
 }
 
@@ -516,12 +520,10 @@ button:active{
         margin:5px 0 5px;
         padding: 2px;
         border-radius: 4%;
-
-
     }
 
     .myListImg {
-        border-radius: 5% 0;
+        border-radius: 50%;
         border: white 5px solid;
     }
 
@@ -535,9 +537,6 @@ button:active{
 
 .myRecipeListResults {
     margin: 10px 0 20px;
-
-
-
 }
 .myRecipeListResults h2 {
     font-family: 'Londrina Solid', cursive;
@@ -568,8 +567,9 @@ button:active{
 
 
 .dbImg {
-    border-radius: 5% 0;
+    border-radius: 50%;
     border: white 5px solid;
+    width: 200px;   
 }
 
 
@@ -578,8 +578,6 @@ button:active{
     padding: 10px 20px 5px;
     background: rgba(173, 173, 173, 0.2);
     border: #585959 10px solid;
-
-
 }
 
 .dbDetailsDiv p {
@@ -587,44 +585,43 @@ button:active{
     font-weight: 500;
     color: black;
     margin: 3px;
-    size: 1.5em;
-    
-    
+    font-size: 1em;
 }
+
 .dbDetailsDiv a {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: black;
     margin: 3px;
-    size: 1.5em;
+    font-size: 1em;
+}
+.dbDetailsDiv a:hover {
+    color:  rgb(182, 98, 82);
 }
 .dbDetailsDiv a:active {
     text-decoration: none;
-
 }
 
 .dbTrash {
     margin: 5px;
     font-size: 1em;
-
-
 }
 
 .dbTrash:hover {
     cursor: pointer;
-
-
 }
 
 /* recipe upload form */
+
+.recipeUploadDiv{
+    padding: 0 120px;
+}
 
 
 .recipeUpload {
     margin: 30px 30px;
     background: rgb(255, 139, 117, .4);
     padding: 20px;
-
-
 }
 .recipeUpload h2 {
     font-family: 'Londrina Solid', cursive;
@@ -648,7 +645,7 @@ button:active{
     display: inline-block;
     border-radius: 4px;
     border: 1px solid #ccc;
-    width: 30%;
+    width: 50%;
     padding: 10px 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -677,9 +674,456 @@ button:active{
   .formResultsDisplay {
       border-radius: 4%;
 
+  }
 
+  main {
+    padding: 4rem;
+    min-height: calc(100vh - 60px); 
+  }
+  main {
+    overflow: hidden;
+    padding: 120px; 
+  }
+  /* main#submitRecipe {
+    overflow: hidden;
+    padding: 60px; 
+  } */
+
+  #main-footer {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 1rem;
+    background: rgb(186, 223, 122, .6);
+    border-top: rgb(128, 128, 128, .7) 2px solid;
+    color: #fff;
+    font-weight: 500;
+    height: 160px; 
+  }
+  .contact {
+    margin: 0;
+  }
+  .email {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+      text-decoration: none;
+  }
+  .email:hover {
+      color: rgb(209, 62, 106);
+  }
+.email:active {
+    text-decoration: none;
+}
+.copyright {
+    padding-bottom: 10px;
+}
+
+.searchRecipeDetailsDivHidden {
+    visibility: hidden;
+    position: absolute;
+    top: 110px;
+    left: 120px; 
+    background: rgb(255, 255, 255, 0.8);
+    border: black 3px solid;
+
+}
+.searchRecipeDetailsDivHidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    background: rgb(255, 255, 255, 0.8);
+    border: black 3px solid;
+
+}
+.btnHidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    background: black;
+    color: white;
+}
+ 
+  
+
+
+/* print only the content */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .featureImgDiv, .featureImgDiv *{
+        visibility: visible;
+    }
+    .featureImgDiv {
+        position: absolute;
+        left: 150px;
+        top: 0;
+        width: 400px;
+    }
+
+    .featureDetailsDiv, .featureDetailsDiv *{
+        visibility: visible;
+    }
+    .featureDetailsDiv {
+        position: absolute;
+        left: 0px;
+        top: 300px;
+    }
+
+    .buttonsDiv, .buttonsDiv * {
+    visibility: hidden;
+    }
+    .linkInst, .linkInst * {
+        visibility: hidden;
+    }
+
+
+    .recipeDetailsDiv, .recipeDetailsDiv * {
+        visibility: visible;
+    }
+    .recipeDetailsDiv {
+        position: absolute;
+        left: 0px;
+        top: 50px;
+    }
+
+    .buttonsDiv, .buttonsDiv * {
+        visibility: hidden;
+    }
+    .linkInst, .linkInst * {
+        visibility: hidden;
+    }
+
+  /* media queries */
 
   }
+  
+  @media screen and (max-width: 640px) {
+    .headerDiv {
+        grid-template-columns: 40% 60%;
+        height: 150px;
+    }
+    .headerDiv h1 {
+        visibility: hidden;
+        grid-column-start: 1;
+    }
+    .searchContainer {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+    .searchDiv {
+        grid-column-start: 1; 
+        grid-row-start: 1; 
+        text-align: center;
+    }
+    .navItems {
+        grid-column-start: 1;
+        grid-row-start: 2;
+        text-align: center; 
+        margin-top: 5px;
+    }
+    .recipeSearchResultsDiv {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 100px auto;
+        margin: 50px 50px 10px;
+      }
+    .searchResultsList {
+        grid-column-start: 1;
+        grid-row-start: 2;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .searchRecipeDetailsDiv {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+
+    .scrollBtnMain {
+        grid-template-columns: 10% 40% 40% 10%;
+  
+    }
+    #banner {
+        width:100%;
+        height: 100%;
+     }
+     .h2main {
+        grid-column-start: 1;
+        font-size: 0.8em;
+        margin: 0;
+        padding: 0;
+     }
+     .featuredRecipes h2 {
+        font-size: 1.5em;
+        margin: 0;
+        padding-top: 5px;
+     }
+
+     .communityFormDisplay h2 {
+        font-size: 1.5em;
+        margin: 0;
+        padding-top: 5px;
+     }
+     .communityFormDisplay {
+        grid-template-rows: 40px auto; 
+
+     }
+     .featuredRecipes {
+        grid-template-rows: 40px auto; 
+
+     }
+
+     .formField {
+        width: 100%
+    }
+    .recipeUploadDiv {
+        padding: 0;
+    }
+    .dbImg {
+        WIDTH: 100PX;
+        border-radius: 50%;
+        border: white 2px solid;
+    }
+    .myRecipeListResults {
+        padding: 0;
+    }
+    #myListPage {
+        padding: 0;
+    }
+    .sticky + #myListPage {
+        padding-top: 200px;
+        
+      }
+      .sticky + .recipeUploadDiv {
+        padding-top: 200px;
+      }
+      .submitBtnForm{
+          font-size: 0.7em;
+          padding: 5px 0;
+
+      }
+      .dbDetailsDiv p {
+        size: 0.5em;
+    }
+    .dbDetailsDiv p {
+        font-weight: 500;
+        font-size: .7em;
+    }
+    .dbDetailsDiv a {
+        font-weight: 500;
+        font-size: .7em;
+    }
+    .formDisplayList p {
+        font-size: .7em;
+    }
+
+    .myListImg {
+        border-radius: 100%;
+        border: white 3px solid;
+        width: 100px;
+        height: 100px;
+    }
+    }
+    
+    @media screen and (min-width: 641px) and (max-width: 768px) {
+        .headerDiv {
+            grid-template-columns: 40% 60%;
+            height: 150px;
+        }
+        .headerDiv h1 {
+            visibility: hidden;
+            grid-column-start: 2;
+        }
+        .searchContainer {
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto;
+        }
+        .searchDiv {
+            grid-column-start: 1; 
+            grid-row-start: 1; 
+            text-align: center;
+        }
+        .navItems {
+            grid-column-start: 1;
+            grid-row-start: 2;
+            text-align: center; 
+            margin-top: 5px;
+        }
+        .searchResultsList {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .searchRecipeDetailsDiv {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+        }
+
+        .scrollBtnMain {
+            grid-template-columns: 10% 40% 40% 10%;
+      
+        }
+        #banner {
+            width:100%;
+            height: 100%;
+         }
+         .formField {
+            width: 100%
+        }
+        .recipeUploadDiv {
+            padding: 0;
+        }
+        .dbImg {
+            WIDTH: 100PX;
+            border-radius: 50%;
+            border: white 2px solid;
+        }
+        .myRecipeListResults {
+            padding: 0;
+        }
+        #myListPage {
+            padding: 0;
+        }
+        .sticky + #myListPage {
+            padding-top: 200px;
+            
+          }
+          .sticky + .recipeUploadDiv {
+            padding-top: 200px;
+            
+          }
+          .submitBtnForm{
+            /* font-size: 0.6em; */
+            padding: 5px;
+        }
+        .dbDetailsDiv p {
+            font-weight: 500;
+            font-size: .8em;
+        }
+        .dbDetailsDiv a {
+            font-weight: 500;
+            font-size: .8em;
+        }
+        .formDisplayList p {
+            font-size: .8em;
+        }
+    
+        .myListImg {
+            border-radius: 100%;
+            border: white 3px solid;
+            width: 150px;
+            height: 150px;
+        }
+    
+    
+        
+      
+    }
+    
+
+    
+    
+    @media screen and (min-width: 769px) and (max-width: 980px) {
+        .headerDiv {
+            grid-template-columns: 40% 60%;
+            height: 100px;
+        }
+        .searchContainer {
+            grid-template-columns: 40% 60%;
+        }
+
+        .headerDiv h1 {
+            grid-column-start: 2;
+        }
+        .searchDiv {
+            grid-column-start: 1; 
+            text-align: center;
+        }
+        .navItems {
+            grid-column-start: 2;
+        }
+        .searchResultsList {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .searchRecipeDetailsDiv {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+        }
+
+        .scrollBtnMain {
+            grid-template-columns: 10% 40% 40% 10%;
+      
+        }
+        #banner {
+            width:100%;
+            height: 100%;
+         }
+         
+         /* .sticky {
+             position: fixed;
+             top: 0;
+             width: 100%;
+           } */
+         
+           .sticky + .recipeUploadDiv {
+             padding-top: 120px;
+             
+           }
+           .sticky + .myRecipeListResultsDiv {
+             padding-top: 120px;
+             
+           }
+           .sticky + .recipeSearchResultsDiv {
+             padding-top: 105px;
+           }
+           .formField {
+               width: 100%
+           }
+           .submitBtnForm{
+            /* font-size: 0.6em; */
+            padding: 5px;
+        }
+
+        .dbDetailsDiv p {
+            font-weight: 500;
+            font-size: .8em;
+        }
+        .dbDetailsDiv a {
+            font-weight: 500;
+            font-size: .8em;
+        }
+        .formDisplayList p {
+            font-size: .8em;
+        }
+    
+        .myListImg {
+            border-radius: 100%;
+            border: white 3px solid;
+            width: 150px;
+            height: 150px;
+        }
+
+
+
+    }
+
+
+
+
+
 
 /* font-family: 'Londrina Solid', cursive;
 font-family: 'Oregano', cursive;
