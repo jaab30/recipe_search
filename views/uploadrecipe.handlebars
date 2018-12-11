@@ -12,42 +12,52 @@
         </nav>
     </div>
 </header>
+<main id="submitRecipe">
+    <div class="recipeUploadDiv">
+        <div class="recipeUpload">
+            <h2>Submit a Recipe</h2>
+            <div class="formDiv">
 
-<div class="recipeUploadDiv">
-    <div class="recipeUpload">
-        <h2>Submit a Recipe</h2>
-        <div class="formDiv">
+                <form id="recipeForm" class="enterRecipeForm">
 
-            <form id="recipeForm" class="enterRecipeForm">
+                    <p> User Name:</p>
+                    <input class="userForm formField" type="text" placeholder="ex. John Doe">
+                    <p>User email:</p>
+                    <input class="emailForm formField" type="text" placeholder="ex. example@example.com">
+                    <p>Recipe Image:</p>
+                    <input class="imageForm formField" type="text" placeholder="ex. enter an URL Address OR leave blank">
+                    <p>Recipe Name:</p>
+                    <input class="nameForm formField" type="text" placeholder="ex. BQ Chicken">
+                    <p>Servings:</p>
+                    <select class="servingsForm formField">
+                        <option>Select a Number</option>
+                        <option class="ingrediesntForm1" value="1">1</option>
+                        <option class="ingrediesntForm2" value="2">2</option>
+                        <option class="ingrediesntForm3" value="3">3</option>
+                        <option class="ingrediesntForm4" value="4">4</option>
+                        <option class="ingrediesntForm5" value="5">5</option>
+                        <option class="ingrediesntForm6" value="6">6</option>
+                    </select>
+                    <br>
+                    <p>Ingredients:</p>
+                    <textarea class="ingredientsForm formField" rows="10" cols="30"></textarea>
+                    <br>
+                    <p>Instructions:</p>
+                    <textarea class="instructionsForm formField" rows="10" cols="30"></textarea>
+                    <br><br>
+                    <input class="submitForm submitBtnForm" type="submit" value="Submit Recipe">
+                </form>
+            </div>
 
-                <p> User Name:</p>
-                <input class="userForm formField" type="text" placeholder="ex. John Doe">
-                <p>User email:</p>
-                <input class="emailForm formField" type="text" placeholder="ex. example@example.com">
-                <p>Recipe Image:</p>
-                <input class="imageForm formField" type="text" placeholder="ex. enter an URL Address OR leave blank">
-                <p>Recipe Name:</p>
-                <input class="nameForm formField" type="text" placeholder="ex. BQ Chicken">
-                <p>Servings:</p>
-                <select class="servingsForm formField">
-                    <option>Select a Number</option>
-                    <option class="ingrediesntForm1" value="1">1</option>
-                    <option class="ingrediesntForm2" value="2">2</option>
-                    <option class="ingrediesntForm3" value="3">3</option>
-                    <option class="ingrediesntForm4" value="4">4</option>
-                    <option class="ingrediesntForm5" value="5">5</option>
-                    <option class="ingrediesntForm6" value="6">6</option>
-                </select>
-                <br>
-                <p>Ingredients:</p>
-                <textarea class="ingredientsForm formField" rows="10" cols="30"></textarea>
-                <br>
-                <p>Instructions:</p>
-                <textarea class="instructionsForm formField" rows="10" cols="30"></textarea>
-                <br><br>
-                <input class="submitForm submitBtnForm" type="submit" value="Submit Recipe">
-            </form>
         </div>
-
     </div>
-</div>
+</main>
+<footer id="main-footer">
+    <p class="contact">Contact Us at: </p>
+    <p class="contact">Intake, Inc. PO Box 679556, Orlando, FL 32867. Ph#: 1.800.4Intake</p>
+    <a class="email" href="mailto:contact@intake.com" target="_blank"> email: contact@intake.com
+    </a>
+    <a href="https://www.instagram.com/intake.life/?hl=en" target="_blank"> <img src="/img/instagram.png" alt="Instagram">
+    </a>
+    <p class="contact copyright">Copyright &copy 2018</p>
+</footer>
