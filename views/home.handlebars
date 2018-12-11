@@ -62,11 +62,11 @@
         {{#each myform}}
         <li class="formDisplayList">
             <img class="myListImg" src="{{this.recipe_image}}" alt="recipe picture">
-            <p class="FormUserName formResultsDisplay">User Name: {{this.user_name}}</p>
-            <p class="FormRecipeName formResultsDisplay">Recipe Name: {{this.recipe_name}}</p>
-            <p class="FormServings formResultsDisplay">Servings: {{this.recipe_servings}}</p>
-            <p class="FormIngredients formResultsDisplay">Ingredients: {{this.recipe_ingredients}}</p>
-            <p class="FormInstructions formResultsDisplay">Cooking Instructions: {{this.recipe_cookingInst}}</p>
+            <p class="formUserName formResultsDisplay"><strong>User Name: </strong>{{this.user_name}}</p>
+            <p class="formRecipeName formResultsDisplay"><strong>Recipe Name:</strong> {{this.recipe_name}}</p>
+            <p class="formServings formResultsDisplay"><strong>Servings:</strong> {{this.recipe_servings}}</p>
+            <p class="formIngredients formResultsDisplay"><strong>Ingredients: </strong>{{this.recipe_ingredients}}</p>
+            <p class="formInstructions formResultsDisplay"><strong>Cooking Instructions: </strong>{{this.recipe_cookingInst}}</p>
 
         </li>
         {{/each}}

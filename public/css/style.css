@@ -512,14 +512,25 @@ button:active{
     }
 
     .formDisplayList p {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1em;
-        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: .8em;
+        font-weight: 400;
         color:#585959;
-        background: white;
+        background: rgb(255, 255, 255, 0.9);
         margin:5px 0 5px;
-        padding: 2px;
-        border-radius: 4%;
+        padding: 5px;
+        border-radius: 0%;
+    }
+
+    .formDisplayList p:nth-child(5) {
+        font-size: .8em;
+        padding: 10px 20px;
+
+    }
+    .formDisplayList p:nth-child(6) {
+        font-size: .8em;
+        padding: 10px 20px;
+
     }
 
     .myListImg {
@@ -585,15 +596,22 @@ button:active{
     font-weight: 500;
     color: black;
     margin: 3px;
-    font-size: 1em;
+    font-size: .9em;
 }
+.dbDetailsDiv p:nth-child(4) {
+    font-size: .8em;
+}
+.dbDetailsDiv p:nth-child(5) {
+    font-size: .9em;
+}
+
 
 .dbDetailsDiv a {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: black;
     margin: 3px;
-    font-size: 1em;
+    font-size: .9em;
 }
 .dbDetailsDiv a:hover {
     color:  rgb(182, 98, 82);
@@ -908,18 +926,21 @@ button:active{
 
       }
       .dbDetailsDiv p {
-        size: 0.5em;
-    }
-    .dbDetailsDiv p {
         font-weight: 500;
+        font-size: .8em;
+    }
+    .dbDetailsDiv p:nth-child(4) {
+        font-weight: 400;
         font-size: .7em;
+    }
+    .dbDetailsDiv p:nth-child(5) {
+        font-weight: 400;
+        font-size: .8em;
     }
     .dbDetailsDiv a {
-        font-weight: 500;
-        font-size: .7em;
+        font-weight: 400;
+        font-size: .8em;
     }
-    .formDisplayList p {
-        font-size: .7em;
     }
 
     .myListImg {
@@ -928,7 +949,7 @@ button:active{
         width: 100px;
         height: 100px;
     }
-    }
+    
     
     @media screen and (min-width: 641px) and (max-width: 768px) {
         .headerDiv {
@@ -1004,14 +1025,7 @@ button:active{
             /* font-size: 0.6em; */
             padding: 5px;
         }
-        .dbDetailsDiv p {
-            font-weight: 500;
-            font-size: .8em;
-        }
-        .dbDetailsDiv a {
-            font-weight: 500;
-            font-size: .8em;
-        }
+
         .formDisplayList p {
             font-size: .8em;
         }
@@ -1022,7 +1036,24 @@ button:active{
             width: 150px;
             height: 150px;
         }
-    
+        .dbDetailsDiv p {
+            font-weight: 500;
+            font-size: .8em;
+        }
+
+        .dbDetailsDiv p:nth-child(4) {
+            font-weight: 400;
+            font-size: .7em;
+        }
+        
+        .dbDetailsDiv p:nth-child(5) {
+            font-weight: 400;
+            font-size: .8em;
+        }
+        .dbDetailsDiv a {
+            font-weight: 400;
+            font-size: .8em;
+        }
     
         
       
@@ -1101,8 +1132,16 @@ button:active{
             font-weight: 500;
             font-size: .8em;
         }
+        .dbDetailsDiv p:nth-child(4) {
+            font-weight: 400;
+            font-size: .7em;
+        }
+        .dbDetailsDiv p:nth-child(5) {
+            font-weight: 400;
+            font-size: .8em;
+        }
         .dbDetailsDiv a {
-            font-weight: 500;
+            font-weight: 400;
             font-size: .8em;
         }
         .formDisplayList p {
