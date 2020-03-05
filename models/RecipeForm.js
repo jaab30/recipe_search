@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var FormRecipe = sequelize.define("FormRecipe", {
+    const FormRecipe = sequelize.define("FormRecipe", {
         user_ID: { type: DataTypes.STRING },
         user_name: { type: DataTypes.STRING },
         user_email: { type: DataTypes.STRING },
