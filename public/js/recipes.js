@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         var userId = myRecipeUserId;
         $.ajax({
-            url: "/getdatabase/" + userId,
+            url: "/api/getdatabase/" + userId,
             type: "GET",
         }).then(
             // show contents from databe myrecipes
@@ -315,7 +315,7 @@ $(document).ready(function () {
             $(".searchRecipeDetailsDivHidden").append(recipeDetailsDiv)
 
             $.ajax({
-                url: "/getdatabase/" + userId,
+                url: "api/getdatabase/" + userId,
                 type: "GET",
 
             }).then(function (res) {
