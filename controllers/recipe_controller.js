@@ -4,7 +4,7 @@ module.exports = {
     getAllRecipes: function(req, res){
         db.FormRecipe.findAll({})
         .then(dbFormRecipe => {
-            var formObject = {
+            const formObject = {
                 myform: dbFormRecipe
             };
             res.render("index", formObject)
@@ -13,7 +13,7 @@ module.exports = {
     getAllRecipesHome: function(req, res){
         db.FormRecipe.findAll({})
         .then(dbFormRecipe => {
-            var formObject = {
+            const formObject = {
                 myform: dbFormRecipe
             };
             res.render("home", formObject)

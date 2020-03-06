@@ -690,8 +690,20 @@ button:active{
   }
 
   .formResultsDisplay {
-      border-radius: 4%;
+    border-radius: 4%;
 
+  }
+
+  .alertStatus {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(183, 219, 120, 0.6);
+    color: white;
+    font-size: 1.2em;
+  }
+  
+  p.submitMessage {
+      padding: 20px;
+      color: white;
   }
 
   main {
@@ -702,10 +714,6 @@ button:active{
     overflow: hidden;
     padding: 120px; 
   }
-  /* main#submitRecipe {
-    overflow: hidden;
-    padding: 60px; 
-  } */
 
   #main-footer {
     font-family: 'Roboto', sans-serif;

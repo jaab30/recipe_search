@@ -21,6 +21,8 @@ app.set("view engine", "handlebars");
 const routes = require("./routes");
 app.use(routes);
 
+//reference to the models / DB
+const db = require("./models")
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {

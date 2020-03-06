@@ -17,17 +17,16 @@
         <div class="recipeUpload">
             <h2>Submit a Recipe</h2>
             <div class="formDiv">
-
                 <form id="recipeForm" class="enterRecipeForm">
 
                     <p> User Name:</p>
-                    <input class="userForm formField" type="text" placeholder="ex. John Doe">
+                    <input class="userForm formField" type="text" placeholder="ex. John Doe" required>
                     <p>User email:</p>
-                    <input class="emailForm formField" type="text" placeholder="ex. example@example.com">
+                    <input class="emailForm formField" type="email" placeholder="ex. example@example.com" required>
                     <p>Recipe Image:</p>
                     <input class="imageForm formField" type="text" placeholder="ex. enter an URL Address OR leave blank">
                     <p>Recipe Name:</p>
-                    <input class="nameForm formField" type="text" placeholder="ex. BQ Chicken">
+                    <input class="nameForm formField" type="text" placeholder="ex. BQ Chicken" required>
                     <p>Servings:</p>
                     <select class="servingsForm formField">
                         <option>Select a Number</option>
@@ -45,8 +44,10 @@
                     <p>Instructions:</p>
                     <textarea class="instructionsForm formField" rows="10" cols="30"></textarea>
                     <br><br>
+                    
                     <input class="submitForm submitBtnForm" type="submit" value="Submit Recipe">
                 </form>
+                <div class="alertStatus"></div>
             </div>
 
         </div>
