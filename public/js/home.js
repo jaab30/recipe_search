@@ -61,19 +61,19 @@ const displayFeatureRecipe = () => {
     }).then(res => {
         response = res;
         // display feature recipe front page
-        displayFeaturedRecipeImage(9, res);
-        displayRecipeDetails(9, res);
+        // displayFeaturedRecipeImage(9, res);
+        displayRecipeDetails(7, res);
         checkRecipeList();
     })
 }
 
 displayFeatureRecipe()
 
-const displayFeaturedRecipeImage = () => {
+const displayFeaturedRecipeImage = (image) => {
 
     let contentImg = `
             <div class="featureImgDiv">
-            <img class="featureImg" src="/img/featured_pic_use.jpg" alt='Recipe Img'>
+            <img class="featureImg" src=${image}>
             </div>
             `
     $(".searchResultsList").append(contentImg)
@@ -82,7 +82,7 @@ const displayFeaturedRecipeImage = () => {
 const displayRecipeDetails = (x, response) => {
 
     const ingredientsList = response.hits[x].recipe.ingredients.map(item => `<li>${item.text}</li>`);
-
+    displayFeaturedRecipeImage(response.hits[x].recipe.image);
     let content = `
             <div class="featureDetailsDiv">
                 ${isFeaturedRecipe ? `` : "<img class='imgDetails' src=" + response.hits[x].recipe.image + " alt='Recipe Img'>"}

@@ -40,6 +40,7 @@ h1 {
     width: 100%;
     }
 
+
 .sticky + .recipeUploadDiv {
     padding-top: 120px;
 
@@ -51,6 +52,9 @@ h1 {
 .sticky + .recipeSearchResultsDiv {
     padding-top: 105px;
 }
+.sticky + .recipeSearchMainResultsDiv {
+    padding-top: 200px;
+}
 .sticky + #myListPage {
     padding-top: 120px;
 }
@@ -58,12 +62,10 @@ h1 {
     padding-top: 120px;
 }
 
-
 header {
     background-image: url("/img/header_back13.jpg");
     background-size: cover;
     padding: 20px;
-
 }
 
 h2 {
@@ -161,7 +163,7 @@ h2 {
 
 /* Main Results */
 
-.recipeSearchResultsDiv h1{
+.recipeSearchResultsDiv h1, .recipeSearchMainResultsDiv h1{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -262,7 +264,7 @@ h2 {
 }
 
 /* Recipe search */
-  .recipeSearchResultsDiv {
+  .recipeSearchResultsDiv, .recipeSearchMainResultsDiv {
     display: grid;
     grid-template-columns: 10% 40% 40% 10%;
     grid-template-rows: 100px auto;
@@ -856,7 +858,7 @@ button:active{
         text-align: center; 
         margin-top: 5px;
     }
-    .recipeSearchResultsDiv {
+    .recipeSearchResultsDiv, .recipeSearchMainResultsDiv {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 100px auto;
@@ -1125,6 +1127,9 @@ button:active{
            }
            .sticky + .recipeSearchResultsDiv {
              padding-top: 105px;
+           }
+           .sticky + .recipeSearchMainResultsDiv {
+             padding-top: 200px;
            }
            .sticky + #myListPage {
             padding-top: 120px;
