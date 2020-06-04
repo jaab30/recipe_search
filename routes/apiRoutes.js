@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const recipeController = require("../controllers/recipe_controller")
 
-
+//uses /api
 router.get("/getdatabase/:id", recipeController.getUserRecipes);
 router.post("/myrecipes", recipeController.saveUserRecipes);
 router.put("/myrecipes/:id", recipeController.updateUserRecipes);

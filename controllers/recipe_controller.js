@@ -1,68 +1,74 @@
 const db = require("../models");
 
 module.exports = {
-    getAllRecipes: function(req, res){
+    getAllRecipes(req, res) {
         db.FormRecipe.findAll({})
-        .then(dbFormRecipe => {
-            const formObject = {
-                myform: dbFormRecipe
-            };
-            res.render("index", formObject)
-        });
+            .then(dbFormRecipe => {
+                const formObject = {
+                    myform: dbFormRecipe
+                };
+                res.render("index", formObject)
+            });
     },
-    getAllRecipesHome: function(req, res){
+    getAllRecipesHome(req, res) {
         db.FormRecipe.findAll({})
-        .then(dbFormRecipe => {
-            const formObject = {
-                myform: dbFormRecipe
-            };
-            res.render("home", formObject)
-        });
+            .then(dbFormRecipe => {
+                const formObject = {
+                    myform: dbFormRecipe
+                };
+                res.render("home", formObject)
+            });
     },
-    getUserRecipes: function(req, res){
+    getUserRecipes(req, res) {
         db.MyRecipe.findAll({ where: { user_ID: req.params.id } })
-        .then( dbMyRecipe => res.json(dbMyRecipe));
+            .then(dbMyRecipe => res.json(dbMyRecipe));
     },
-    saveUserRecipes: function(req, res){
+    saveUserRecipes(req, res) {
+
+        const { dbuserId, image, name, healthLabel, servings, calories, otherLabel, ingredients, instructions } = req.body;
+
         db.MyRecipe.create({
-            user_ID: req.body.dbuserId,
-            recipe_image: req.body.image,
-            recipe_name: req.body.name,
-            recipe_health_label: req.body.healthLabel,
-            recipe_servings: req.body.servings,
-            recipe_calories: req.body.calories,
-            recipe_other_label: req.body.otherLabel,
-            recipe_ingredients: req.body.ingredients,
-            recipe_cookingInst: req.body.instructions
-    
+            user_ID: dbuserId,
+            recipe_image: image,
+            recipe_name: name,
+            recipe_health_label: healthLabel,
+            recipe_servings: servings,
+            recipe_calories: calories,
+            recipe_other_label: otherLabel,
+            recipe_ingredients: ingredients,
+            recipe_cookingInst: instructions
+
         }).then(dbMyRecipe => res.json(dbMyRecipe));
     },
-    updateUserRecipes: function(req, res){
+    updateUserRecipes(req, res) {
         db.MyRecipe.update(
             { displayDetails: req.body.displayDetails },
             { where: { id: req.params.id } })
             .then(dbMyRecipe => res.json(dbMyRecipe));
     },
-    saveRecipe: function(req, res){
+    saveRecipe(req, res) {
+
+        const { userIdForm, userForm, emailForm, imageForm, nameForm, servingsForm, ingredientsForm, instructionsForm } = req.body;
+
         db.FormRecipe.create({
-            user_ID: req.body.userIdForm,
-            user_name: req.body.userForm,
-            user_email: req.body.emailForm,
-            recipe_image: req.body.imageForm,
-            recipe_name: req.body.nameForm,
-            recipe_servings: req.body.servingsForm,
-            recipe_ingredients: req.body.ingredientsForm,
-            recipe_cookingInst: req.body.instructionsForm
+            user_ID: userIdForm,
+            user_name: userForm,
+            user_email: emailForm,
+            recipe_image: imageForm,
+            recipe_name: nameForm,
+            recipe_servings: servingsForm,
+            recipe_ingredients: ingredientsForm,
+            recipe_cookingInst: instructionsForm
         })
-        .then(dbRecipeForm => res.json(dbRecipeForm));
+            .then(dbRecipeForm => res.json(dbRecipeForm));
     },
-    deleteRecipe: function(req, res){
+    deleteRecipe(req, res) {
         db.MyRecipe.destroy({
             where: {
                 id: req.params.id
             }
         })
-        .then(dbMyRecipe => res.json(dbMyRecipe))
+            .then(dbMyRecipe => res.json(dbMyRecipe))
     },
 
 }

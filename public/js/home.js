@@ -28,67 +28,64 @@ let userId = "";
 let response;
 let isFeaturedRecipe = true;
 
-    if (myRecipeUserId === null) {
-        myRecipeUserId = userIdNumber();
-        localStorage.setItem("userId", myRecipeUserId);
-        userId = myRecipeUserId;
-    } else {
-        userId = myRecipeUserId;
-    }
+if (myRecipeUserId === null) {
+    myRecipeUserId = userIdNumber();
+    localStorage.setItem("userId", myRecipeUserId);
+    userId = myRecipeUserId;
+} else {
+    userId = myRecipeUserId;
+}
 
-    const checkRecipeList = () => {
-        $.ajax({
-            url: "/api/getdatabase/" + userId,
-            type: "GET",
-        }).then(res => {
-            console.log("database")
-            for (let i = 0; i < res.length; i++) {
-                if ($(".myListName").attr("data-name") === res[i].recipe_name) {
-                    $(".myListBtn[data-name='" + res[i].recipe_name + "']").text("On My List").addClass("onMyList").removeClass("myListBtn")
-                }
+const checkRecipeList = () => {
+    $.ajax({
+        url: "/api/getdatabase/" + userId,
+        type: "GET",
+    }).then(res => {
+        for (let i = 0; i < res.length; i++) {
+            if ($(".myListName").attr("data-name") === res[i].recipe_name) {
+                $(".myListBtn[data-name='" + res[i].recipe_name + "']").text("On My List").addClass("onMyList").removeClass("myListBtn")
             }
-        })
-    }
+        }
+    })
+}
 
-    // get all recipes from API to display feature recipe
+// get all recipes from API to display feature recipe
 
-    const displayFeatureRecipe = () => {
-        
-        queryURL = "https://api.edamam.com/search?q=&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=30&diet=low-carb&"
+const displayFeatureRecipe = () => {
 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(res => {
-            response = res;
-            // display feature recipe front page
-            displayFeaturedRecipeImage(9, res);
-            displayRecipeDetails(9, res);
-            checkRecipeList();
-        })
-    }
+    queryURL = "https://api.edamam.com/search?q=&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=30&diet=low-carb&"
 
-    displayFeatureRecipe()
-    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(res => {
+        response = res;
+        // display feature recipe front page
+        displayFeaturedRecipeImage(9, res);
+        displayRecipeDetails(9, res);
+        checkRecipeList();
+    })
+}
 
+displayFeatureRecipe()
 
-    const displayFeaturedRecipeImage = () => {
+const displayFeaturedRecipeImage = () => {
 
-        let contentImg = `
+    let contentImg = `
             <div class="featureImgDiv">
             <img class="featureImg" src="/img/featured_pic_use.jpg" alt='Recipe Img'>
             </div>
             `
-            $(".searchResultsList").append(contentImg)
-    }
+    $(".searchResultsList").append(contentImg)
+}
 
-    const displayRecipeDetails = (x, response) => {
+const displayRecipeDetails = (x, response) => {
 
-        const ingredientsList = response.hits[x].recipe.ingredients.map( item => `<li>${item.text}</li>`);
+    const ingredientsList = response.hits[x].recipe.ingredients.map(item => `<li>${item.text}</li>`);
 
-        let content = `
+    let content = `
             <div class="featureDetailsDiv">
-                ${isFeaturedRecipe ? `` : "<img class='imgDetails' src="+response.hits[x].recipe.image+" alt='Recipe Img'>"}
+                ${isFeaturedRecipe ? `` : "<img class='imgDetails' src=" + response.hits[x].recipe.image + " alt='Recipe Img'>"}
                 <h3 class="recipeDetailsName myListName" data-name="${response.hits[x].recipe.label}">${response.hits[x].recipe.label}</h3>
                 <p class="carbLabel">${response.hits[x].recipe.dietLabels.map(item => item).join(", ")}</p>
                 <p class="servings">Servings: ${response.hits[x].recipe.yield}</p>
@@ -108,153 +105,153 @@ let isFeaturedRecipe = true;
                 </div>
             </div>
         `
-        $(".searchRecipeDetailsDiv").append(content)
-        isFeaturedRecipe = false;
+    $(".searchRecipeDetailsDiv").append(content)
+    isFeaturedRecipe = false;
 
-    }
+}
 
-    // more info btn
-    $(document).on("click", ".recipeBtn", function () {
-        $(".searchRecipeDetailsDiv").empty()
-        $(".searchRecipeDetailsDivHidden").empty()
-        const recipeID = $(this).attr("data-value")
+// more info btn
+$(document).on("click", ".recipeBtn", function () {
+    $(".searchRecipeDetailsDiv").empty()
+    $(".searchRecipeDetailsDivHidden").empty()
+    const recipeID = $(this).attr("data-value")
 
-        displayRecipeDetails(recipeID, response);
-        checkRecipeList();
+    displayRecipeDetails(recipeID, response);
+    checkRecipeList();
 
-        $.ajax({
-            url: "api/getdatabase/" + userId,
-            type: "GET",
+    $.ajax({
+        url: "api/getdatabase/" + userId,
+        type: "GET",
 
-        }).then(function (res) {
+    }).then(function (res) {
 
-            for (let i = 0; i < res.length; i++) {
-                if (response.hits[recipeID].recipe.label == res[i].recipe_name) {
+        for (let i = 0; i < res.length; i++) {
+            if (response.hits[recipeID].recipe.label == res[i].recipe_name) {
 
-                    $(".myListBtn[data-name='" + res[i].recipe_name + "']").text("On My List").addClass("onMyList").removeClass("myListBtn")
-                }
+                $(".myListBtn[data-name='" + res[i].recipe_name + "']").text("On My List").addClass("onMyList").removeClass("myListBtn")
             }
-        })
+        }
     })
+})
 
 // Save to User's Favorite list
-    $(document).on("click", ".myListBtn", function () {
-        const myRecipeID = $(this).attr("data-value")
+$(document).on("click", ".myListBtn", function () {
+    const myRecipeID = $(this).attr("data-value")
 
-        const newRecipe = {
-            dbuserId: userId,
-            image: response.hits[myRecipeID].recipe.image,
-            name: response.hits[myRecipeID].recipe.label,
-            healthLabel: (response.hits[myRecipeID].recipe.dietLabels).join(", "),
-            servings: response.hits[myRecipeID].recipe.yield,
-            calories: response.hits[myRecipeID].recipe.calories,
-            otherLabel: (response.hits[myRecipeID].recipe.healthLabels).join(", "),
-            ingredients: (response.hits[myRecipeID].recipe.ingredientLines).join(", "),
-            instructions: response.hits[myRecipeID].recipe.url
-        };
-        $(this).text("On My List").addClass("onMyList").removeClass("myListBtn")
+    const newRecipe = {
+        dbuserId: userId,
+        image: response.hits[myRecipeID].recipe.image,
+        name: response.hits[myRecipeID].recipe.label,
+        healthLabel: (response.hits[myRecipeID].recipe.dietLabels).join(", "),
+        servings: response.hits[myRecipeID].recipe.yield,
+        calories: response.hits[myRecipeID].recipe.calories,
+        otherLabel: (response.hits[myRecipeID].recipe.healthLabels).join(", "),
+        ingredients: (response.hits[myRecipeID].recipe.ingredientLines).join(", "),
+        instructions: response.hits[myRecipeID].recipe.url
+    };
+    $(this).text("On My List").addClass("onMyList").removeClass("myListBtn")
 
-        // Send the POST request.
-        $.ajax("/api/myrecipes", {
-            type: "POST",
-            data: newRecipe
-        }).then(data =>console.log(data));
-    });
+    // Send the POST request.
+    $.ajax("/api/myrecipes", {
+        type: "POST",
+        data: newRecipe
+    }).then(data => console.log(data));
+});
 
-      // Print Btn        
-      $(document).on("click", ".printBtn", () => window.print());
+// Print Btn        
+$(document).on("click", ".printBtn", () => window.print());
 
-    // display results to the page as a list of recipes
-      function displayResults(x) {
+// display results to the page as a list of recipes
+function displayResults(x) {
 
-        for (let i = x; i < (x + 10); i++) {
-            let content = `
+    for (let i = x; i < (x + 10); i++) {
+        let content = `
                 <div class="searchListDetails" data-value="${i}">
                     <img class="imgSearch" src=${response.hits[i].recipe.image} alt="Recipe Img">
                     <h3 class="recipeName" data-value="${i}">${response.hits[i].recipe.label}</h3>
                     <button id="recipeDetails" class="recipeBtn" type="button" data-value="${i}">More Info</button>
                 </div>
                 `
-            $(".searchResultsList").append(content)
-        }
+        $(".searchResultsList").append(content)
     }
+}
 
-    $(".submitBtn").on("click", event => {
-        event.preventDefault()
-        window.location.href = '#pagetop'
-        let input = $("#search-inputText").val()
-        $(".h1main").empty()
-        $(".h2main").html("<h2>Low Carb Recipes Search Results</h2>")
-        $(".searchResultsList").empty()
-        $(".searchRecipeDetailsDiv").empty()
-        $(".scroll-right").empty()
-        $(".scroll-left").empty()
-        queryURL = "https://api.edamam.com/search?q=" + input + "&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=50&diet=low-carb&"
+$(".submitBtn").on("click", event => {
+    event.preventDefault()
+    window.location.href = '#pagetop'
+    let input = $("#search-inputText").val()
+    $(".h1main").empty()
+    $(".h2main").html("<h2>Low Carb Recipes Search Results</h2>")
+    $(".searchResultsList").empty()
+    $(".searchRecipeDetailsDiv").empty()
+    $(".scroll-right").empty()
+    $(".scroll-left").empty()
+    queryURL = "https://api.edamam.com/search?q=" + input + "&app_id=bf1e3672&app_key=28596a3e346300619e46cf85bbebc6e3&from=0&to=50&diet=low-carb&"
 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(res => {
-            let content = `
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(res => {
+        let content = `
             <div class='featImgTempDiv'>
                 <img class='featImgTemp' src="/img/poster1B.jpg" alt='Recipe Img'>
             </div>
             `
-            $(".searchRecipeDetailsDiv").append(content)
+        $(".searchRecipeDetailsDiv").append(content)
 
-            response = res
-            displayResults(0);
-            $("#search-inputText").val("")
-            scrollRightImg = $("<i class='fas fa-angle-double-right scroll-rightImg'></i>").attr("value", "10");
-            $(".scroll-right").append(scrollRightImg)
-        })
-    });
+        response = res
+        displayResults(0);
+        $("#search-inputText").val("")
+        scrollRightImg = $("<i class='fas fa-angle-double-right scroll-rightImg'></i>").attr("value", "10");
+        $(".scroll-right").append(scrollRightImg)
+    })
+});
 // scroll right btn
-    $(document).on("click", ".scroll-rightImg", function () {
-        let scrollValue = $(this).attr("value")
-        scrollValue = parseInt(scrollValue)
-        let scrollValueLeft = scrollValue - 10;
-        scrollValueLeft = parseInt(scrollValueLeft)
-        scrollLeftImg = $("<i class='fas fa-angle-double-left scroll-leftImg'></i>").attr("value", scrollValueLeft);
+$(document).on("click", ".scroll-rightImg", function () {
+    let scrollValue = $(this).attr("value")
+    scrollValue = parseInt(scrollValue)
+    let scrollValueLeft = scrollValue - 10;
+    scrollValueLeft = parseInt(scrollValueLeft)
+    scrollLeftImg = $("<i class='fas fa-angle-double-left scroll-leftImg'></i>").attr("value", scrollValueLeft);
+    $(".scroll-left").append(scrollLeftImg)
+    if (scrollValue > 39) {
+        $(".searchResultsList").empty()
+        $(".scroll-left").empty()
+        displayResults(scrollValue);
+        scrollValueLeft = parseInt(scrollValue) - 10
+        scrollLeftImg.attr("value", scrollValueLeft);
+        $(".scroll-right").empty()
         $(".scroll-left").append(scrollLeftImg)
-        if (scrollValue > 39) {
-            $(".searchResultsList").empty()
-            $(".scroll-left").empty()
-            displayResults(scrollValue);
-            scrollValueLeft = parseInt(scrollValue) - 10
-            scrollLeftImg.attr("value", scrollValueLeft);
-            $(".scroll-right").empty()
-            $(".scroll-left").append(scrollLeftImg)
-        } else {
-            $(".searchResultsList").empty()
-            $(".scroll-left").empty()
-            displayResults(scrollValue);
-            scrollValue = parseInt(scrollValue) + 10
-            scrollRightImg.attr("value", scrollValue);
-            scrollLeftImg.attr("value", scrollValueLeft);
-            $(".scroll-left").append(scrollLeftImg)
-        }
-    })
-    // scroll left btn
-    $(document).on("click", ".scroll-leftImg", function () {
-        let scrollValueLeft = $(this).attr("value")
-        scrollValueLeft = parseInt(scrollValueLeft)
-        let scrollValue = scrollValueLeft + 10;
-        scrollValue = parseInt(scrollValue)
-        if (scrollValueLeft === 0) {
-            $(".searchResultsList").empty()
-            displayResults(scrollValueLeft);
-            scrollValue = parseInt(scrollValueLeft) + 10
-            scrollRightImg.attr("value", scrollValue);
-            $(".scroll-left").empty()
-        } else {
-            $(".searchResultsList").empty()
-            $(".scroll-right").empty()
-            displayResults(scrollValueLeft);
-            scrollValueLeft = parseInt(scrollValueLeft) - 10
-            scrollLeftImg.attr("value", scrollValueLeft);
-            scrollRightImg.attr("value", scrollValue);
-            $(".scroll-right").append(scrollRightImg)
-        }
-    })
+    } else {
+        $(".searchResultsList").empty()
+        $(".scroll-left").empty()
+        displayResults(scrollValue);
+        scrollValue = parseInt(scrollValue) + 10
+        scrollRightImg.attr("value", scrollValue);
+        scrollLeftImg.attr("value", scrollValueLeft);
+        $(".scroll-left").append(scrollLeftImg)
+    }
+})
+// scroll left btn
+$(document).on("click", ".scroll-leftImg", function () {
+    let scrollValueLeft = $(this).attr("value")
+    scrollValueLeft = parseInt(scrollValueLeft)
+    let scrollValue = scrollValueLeft + 10;
+    scrollValue = parseInt(scrollValue)
+    if (scrollValueLeft === 0) {
+        $(".searchResultsList").empty()
+        displayResults(scrollValueLeft);
+        scrollValue = parseInt(scrollValueLeft) + 10
+        scrollRightImg.attr("value", scrollValue);
+        $(".scroll-left").empty()
+    } else {
+        $(".searchResultsList").empty()
+        $(".scroll-right").empty()
+        displayResults(scrollValueLeft);
+        scrollValueLeft = parseInt(scrollValueLeft) - 10
+        scrollLeftImg.attr("value", scrollValueLeft);
+        scrollRightImg.attr("value", scrollValue);
+        $(".scroll-right").append(scrollRightImg)
+    }
+})
 

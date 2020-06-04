@@ -1,4 +1,5 @@
 html {
+    scroll-behavior: smooth;
     box-sizing: border-box;
     height: 100%;
     }
@@ -49,6 +50,12 @@ h1 {
 }
 .sticky + .recipeSearchResultsDiv {
     padding-top: 105px;
+}
+.sticky + #myListPage {
+    padding-top: 120px;
+}
+.sticky + #submitRecipe {
+    padding-top: 120px;
 }
 
 
@@ -707,12 +714,8 @@ button:active{
   }
 
   main {
-    padding: 4rem;
     min-height: calc(100vh - 60px); 
-  }
-  main {
     overflow: hidden;
-    padding: 120px; 
   }
 
   #main-footer {
@@ -1062,13 +1065,8 @@ button:active{
             font-weight: 400;
             font-size: .8em;
         }
-    
-        
       
     }
-    
-
-    
     
     @media screen and (min-width: 769px) and (max-width: 980px) {
         .headerDiv {
@@ -1128,6 +1126,12 @@ button:active{
            .sticky + .recipeSearchResultsDiv {
              padding-top: 105px;
            }
+           .sticky + #myListPage {
+            padding-top: 120px;
+            }
+            .sticky + #submitRecipe {
+                padding-top: 120px;
+            }
            .formField {
                width: 100%
            }
