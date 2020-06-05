@@ -61,7 +61,6 @@ const displayFeatureRecipe = () => {
     }).then(res => {
         response = res;
         // display feature recipe front page
-        // displayFeaturedRecipeImage(9, res);
         displayRecipeDetails(7, res);
         checkRecipeList();
     })
