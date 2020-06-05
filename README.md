@@ -19,24 +19,24 @@ HTML5, CSS3, CSS Grid, Javascript, Jquery, Node JS, Express, Express-Handlebars,
 
 If you have any questions about the repo, open an issue or contact [jaab30](https://github.com/jaab30) directly at jaab30@yahoo.com.
 
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jaab30/recipe_search)
 
 ## Images
 
 ### Opening Page
-<img src="https://user-images.githubusercontent.com/40499942/52905950-58ab5600-3210-11e9-90ca-ae877e42d16e.png" alt="Recipe Search Image" width="400px" height="320px"><br>
+<img src="https://user-images.githubusercontent.com/40499942/52905950-58ab5600-3210-11e9-90ca-ae877e42d16e.png" alt="Recipe Search Image" width="400px"><br>
 
 ### Home Page
-<img src="https://user-images.githubusercontent.com/40499942/52905951-58ab5600-3210-11e9-9ce4-9bc4f3a8e31f.png" alt="Recipe Search Image" width="400px" height="320px"><br>
+<img src="https://user-images.githubusercontent.com/40499942/52905951-58ab5600-3210-11e9-9ce4-9bc4f3a8e31f.png" alt="Recipe Search Image" width="400px"><br>
 
 ### Search Display
-<img src="https://user-images.githubusercontent.com/40499942/52905952-58ab5600-3210-11e9-9e3f-3647e74dcf73.png" alt="Recipe Search Image" width="400px" height="320px"><br>
+<img src="https://user-images.githubusercontent.com/40499942/52905952-58ab5600-3210-11e9-9e3f-3647e74dcf73.png" alt="Recipe Search Image" width="400px"><br>
 
 ### Submit Recipe Form
-<img src="https://user-images.githubusercontent.com/40499942/52905953-58ab5600-3210-11e9-96fe-0baa5cfe7584.png" alt="Recipe Search Image" width="400px" height="320px"><br>
+<img src="https://user-images.githubusercontent.com/40499942/52905953-58ab5600-3210-11e9-96fe-0baa5cfe7584.png" alt="Recipe Search Image" width="400px"><br>
 
 ### Favority Recipe Display
-<img src="https://user-images.githubusercontent.com/40499942/52905954-58ab5600-3210-11e9-9309-dbbddacfb714.png" alt="Recipe Search Image" width="400px" height="320px"><br>
+<img src="https://user-images.githubusercontent.com/40499942/52905954-58ab5600-3210-11e9-9309-dbbddacfb714.png" alt="Recipe Search Image" width="400px"><br>
 
 ### Users Recipe list
-<img src="https://user-images.githubusercontent.com/40499942/52905955-58ab5600-3210-11e9-9f5f-4ee1de6a3516.png" alt="Recipe Search Image" width="400px" height="320px">
+<img src="https://user-images.githubusercontent.com/40499942/52905955-58ab5600-3210-11e9-9f5f-4ee1de6a3516.png" alt="Recipe Search Image" width="400px">
