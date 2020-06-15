@@ -177,7 +177,7 @@ function displayResults(x) {
 
 $(".submitBtn").on("click", event => {
     event.preventDefault()
-    window.location.href = '#pagetop'
+    window.location.href = '#top'
     let input = $("#search-inputText").val()
     $(".h1main").empty()
     $(".h2main").html("<h2>Low Carb Recipes Search Results</h2>")
