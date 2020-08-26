@@ -81,7 +81,9 @@ const displayFeaturedRecipeImage = (image) => {
 const displayRecipeDetails = (x, response) => {
 
     const ingredientsList = response.hits[x].recipe.ingredients.map(item => `<li>${item.text}</li>`);
-    displayFeaturedRecipeImage(response.hits[x].recipe.image);
+    if (isFeaturedRecipe) {
+        displayFeaturedRecipeImage(response.hits[x].recipe.image);
+    }
     let content = `
             <div class="featureDetailsDiv">
                 ${isFeaturedRecipe ? `` : "<img class='imgDetails' src=" + response.hits[x].recipe.image + " alt='Recipe Img'>"}
